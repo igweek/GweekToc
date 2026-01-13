@@ -1,0 +1,148 @@
+/* Theme Color: #57bf94 (绿色) */
+
+/* 1. 右下角按钮容器 */
+#gweek-controls {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 2. 按钮通用样式 */
+.gweek-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #57bf94;
+    color: #57bf94;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(87, 191, 148, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* --- 修复黑框的核心代码 --- */
+    outline: none !important; /* 去除 PC 端聚焦黑框 */
+    -webkit-tap-highlight-color: transparent; /* 去除手机端点击高亮色块 */
+    user-select: none;
+    padding: 0;
+}
+
+.gweek-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.gweek-btn:hover {
+    background: #57bf94;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(87, 191, 148, 0.4);
+}
+
+/* 3. 返回顶部按钮默认隐藏 */
+#gweek-to-top {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+#gweek-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 4. 目录面板 */
+#gweek-toc-container {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 260px;
+    max-height: 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    z-index: 9998;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(87, 191, 148, 0.1);
+    opacity: 0;
+    transform: scale(0.95);
+    transform-origin: bottom right;
+}
+
+#gweek-toc-container.active {
+    max-height: 60vh;
+    opacity: 1;
+    transform: scale(1);
+    padding-bottom: 10px;
+}
+
+.toc-header {
+    padding: 15px 20px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fdfdfd;
+}
+
+.close-toc {
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+    transition: color 0.2s;
+}
+
+.close-toc:hover {
+    color: #57bf94;
+}
+
+#gweek-toc-list {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    overflow-y: auto;
+    max-height: calc(60vh - 50px);
+}
+
+#gweek-toc-list::-webkit-scrollbar {
+    width: 4px;
+}
+#gweek-toc-list::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 4px;
+}
+
+#gweek-toc-list li {
+    margin: 0;
+}
+
+#gweek-toc-list a {
+    display: block;
+    padding: 8px 20px;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+}
+
+#gweek-toc-list a:hover, #gweek-toc-list a.active {
+    color: #57bf94;
+    background: rgba(87, 191, 148, 0.08); 
+    border-left-color: #57bf94;
+}
+
+.toc-level-3 {
+    padding-left: 35px !important;
+    font-size: 13px !important;
+}
